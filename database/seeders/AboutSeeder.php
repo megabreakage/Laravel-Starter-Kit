@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\About;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Log;
 
 class AboutSeeder extends Seeder
 {
@@ -22,6 +23,7 @@ class AboutSeeder extends Seeder
             ]);
         } catch (\Throwable $th) {
             throw $th;
+            Log::error(response()->json($th->getMessage()));
         }
     }
 }

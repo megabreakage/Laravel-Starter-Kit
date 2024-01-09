@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\About\AddAboutRequest;
+use App\Http\Requests\About\UpdateAboutRequest;
 use App\Models\About;
 use Exception;
 use Illuminate\Http\Request;
@@ -21,11 +23,12 @@ class AboutController extends Controller
         // ]);
     }
 
-    public function store(Request $request){
-        $request->validated($request->all());
-
+    public function store(AddAboutRequest $request){
+        
         try {
-            $about = About::create([
+            $request->validated($request->all());
+
+            About::create([
                 'identifier' => generate_identifier(),
                 'name' => $request->name,
                 'description' => $request->description,
@@ -38,6 +41,26 @@ class AboutController extends Controller
             // return redirect('dashboard.about');
         } catch (\Throwable $th) {
             $this->errors = $th->getError;
+        } finally{
+            // return redirect('dashboard.about', ['errors'=> $this->errors]);
+        }
+    }
+
+    public function update(UpdateAboutRequest $request, About $about, $id){
+        try {
+            $about = $about->find($id);
+            if(!$about){
+                throw new Exception("About record not found", 404);
+            }else{
+                $response = $about->update($request->user()->fill($request->validated()));
+                if(!$response){
+                    throw new Exception("Record not updated", 400);
+                }
+            }
+        } catch (\Throwable $th) {
+            $this->errors = $th;
+        } finally{
+            return redirect('dashboard.about', ['errors' => $this->errors]);
         }
     }
 }

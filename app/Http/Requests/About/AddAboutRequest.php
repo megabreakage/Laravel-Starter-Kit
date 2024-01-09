@@ -23,7 +23,7 @@ class AddAboutRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
             'mission' => ['required', 'string', 'max:255'],
             'vision' => ['required', 'string', 'max:255'],
             'core values' => ['required', 'string', 'max:255']
