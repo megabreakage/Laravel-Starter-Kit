@@ -10,6 +10,6 @@ class ContactType extends Model
     use HasFactory;
 
     protected $fillable = [
-        'identifier', 'name', 'added_by'
+        'identifier', 'name', 'active', 'added_by'
     ];
 }

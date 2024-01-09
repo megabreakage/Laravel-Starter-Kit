@@ -14,7 +14,7 @@ class ContactTypeSeeder extends Seeder
     public function run(): void
     {
         $contact_types = [
-            'email', 'phone_number', 'social', 'fax', 'postal'
+            'email', 'phone number', 'social', 'fax', 'postal'
         ];
 
         foreach ($contact_types as $contact_type) {

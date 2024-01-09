@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->uuid('identifier');
             $table->string('name');
-            $table->foreignId('added_by')->references('id')->on('users')->nullOnDelete();
+            $table->boolean('active')->default(true);
+            $table->foreignId('added_by')->nullable()->references('id')->on('users')->nullOnDelete();
             $table->timestamps();
         });
     }
