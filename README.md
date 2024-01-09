@@ -2,7 +2,7 @@
 Name: Dubois Safaris
 Description: A Safari Tours & Travel Company
 Author: Martin Njuguna (iOSync Limited)
-Initial Date: 09 January 2024
+Initial Date: 07 January 2024
 Latest Revision Date: 09 January 2024
 ---
 
