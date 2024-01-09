@@ -48,9 +48,39 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        Auth::login($user);
+        
+        $user->assignRole('customer');
+        
         event(new Registered($user));
 
+        return redirect(RouteServiceProvider::HOME);
+    }
+
+    public function storeCompanyUser(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
+            'phone_number' => 'required|string|max:15',
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'identifier' => generate_identifier(),
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+            'password' => Hash::make($request->password),
+        ]);
+
         Auth::login($user);
+
+        $user->assignRole('user');
+
+        event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);
     }

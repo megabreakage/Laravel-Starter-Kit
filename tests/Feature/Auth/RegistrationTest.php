@@ -8,7 +8,6 @@ use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
-    use RefreshDatabase;
 
     public function test_registration_screen_can_be_rendered(): void
     {
@@ -23,7 +22,7 @@ class RegistrationTest extends TestCase
             'firstname' => 'Test',
             'lastname' => 'User',
             'email' => 'test@example.com',
-            'phone_number' => '254727905402',
+            'phone_number' => '100217905402',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
