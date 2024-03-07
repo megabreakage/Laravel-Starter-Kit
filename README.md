@@ -1,9 +1,9 @@
 ---
-Name: Dubois Safaris
-Description: A Safari Tours & Travel Company
+Name: Laravel Starter Kit
+Description: A Starter Kit for Larvel 10 Projects
 Author: Martin Njuguna (iOSync Limited)
 Initial Date: 07 January 2024
-Latest Revision Date: 09 January 2024
+Latest Revision Date: 07 March 2024
 ---
 
 <p align="center">
@@ -12,9 +12,9 @@ Latest Revision Date: 09 January 2024
     </a>
 </p>
 
-## About Dubois Safaris
+## About Laravel Starter Kit
 
-Dubois Safaris is a renowned safari tours and travel company that provides exclusive and intimate safaris ranging from Luxury, Mid-range and Budget across world’s famous safari countries, Kenya, Tanzania, Uganda and Rwanda since 2009. Whether you are looking for a private, family, group, corporate or special interest safari our professional team is always ready to give an authentic and memorable African experience.
+Laravel Starter Kit is a pre-configured package containing essential tools, libraries, and templates for kickstarting development projects. It streamlines setup, accelerates development, and ensures consistency, fostering efficient and standardized software development processes from inception to deployment.
 
 ## Application Development License
 
