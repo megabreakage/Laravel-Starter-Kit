@@ -9,49 +9,42 @@ use Illuminate\Database\Seeder;
 
 class ContactsSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $contacts = [
             [
                 'name' => 'Email',
                 'contact_type_id' => 1,
-                'value' => 'info@royalchoicetravel.com'
-            ],[
+                'value' => 'info@acedivingmarine.com'
+            ], [
                 'name' => 'Primary Phone Number',
                 'contact_type_id' => 2,
-                'value' => '254783027111 '
-            ],[
-                'name' => 'Email',
-                'contact_type_id' => 1,
-                'value' => 'deals@royalchoicetravel.com'
-            ],[
+                'value' => '254794601226'
+            ], [
                 'name' => 'Instagram',
                 'contact_type_id' => 3,
-                'value' => 'https://instagram.com/royalchoicetravel'
-            ],[
+                'value' => 'https://instagram.com/acedivingmarine'
+            ], [
                 'name' => 'Facebook',
                 'contact_type_id' => 3,
-                'value' => 'https://facebook.com/royalchoicetravel'
-            ],[
+                'value' => 'https://facebook.com/acedivingmarine'
+            ], [
                 'name' => 'Twitter',
                 'contact_type_id' => 3,
-                'value' => 'https://twitter.com/royalchoiceKE'
-            ],[
+                'value' => 'https://twitter.com/acedivingmarine'
+            ], [
                 'name' => 'TikTok',
                 'contact_type_id' => 3,
-                'value' => 'https://tiktok.com/royalchoicetravel'
+                'value' => 'https://tiktok.com/acedivingmarine'
             ],
         ];
 
         foreach ($contacts as $contact) {
-            Contact::query()->updateOrCreate(
-                ['value' => $contact['value']],
+            Contact::create(
                 [
                     'identifier' => generate_identifier(),
                     'name' => $contact['name'],
+                    'value' => $contact['value'],
                     'contact_type_id' => $contact['contact_type_id'],
                     'added_by' => 1,
                     'activated_by' => 1,

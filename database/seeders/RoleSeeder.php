@@ -17,9 +17,9 @@ class RoleSeeder extends Seeder
             'admin', 'user', 'customer'
         ];
 
-        foreach($roles as $role){
+        foreach ($roles as $role) {
             Role::query()->updateOrCreate([
-                'name'=> $role,
+                'name' => $role,
                 'guard_name' => 'web'
             ]);
         }

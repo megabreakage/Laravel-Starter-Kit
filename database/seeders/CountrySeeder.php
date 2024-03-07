@@ -13,8 +13,9 @@ class CountrySeeder extends Seeder
     public function run(): void
     {
         $countries = [
+            ["name" => "United State of America", 'continent_id' => 6, 'shortcode' => 'USA'],
             ["name" => "Kenya", 'continent_id' => 1, 'shortcode' => 'KE'],
-            ["name" => "Tanzania", 'continent_id' => 1 , 'shortcode' => 'TZ']
+            ["name" => "Dubai", 'continent_id' => 3, 'shortcode' => 'DBX'],
         ];
 
         $countryData = null;
@@ -34,9 +35,10 @@ class CountrySeeder extends Seeder
                 ];
                 Country::create($countryData);
             } catch (\Throwable $error) {
-                Log::error(response()->json([
+                Log::error(
+                    response()->json([
                         'status' => "FAIL",
-                        'message' => 'Creating Country - '.$country['name'].' failed at CountrySeeder',
+                        'message' => 'Creating Country - ' . $country['name'] . ' failed at CountrySeeder',
                         'data' => $countryData,
                         'error' => $error
                     ])

@@ -17,35 +17,21 @@ class CountySeeder extends Seeder
     {
         $counties = [
             ['name' => 'Nairobi', 'country_id' => 1, 'shortcode' => 'NRB'],
-            ['name' => 'Kiambu', 'country_id' => 2, 'shortcode' => 'KMB'],
             ['name' => 'Mombasa', 'country_id' => 3, 'shortcode' => 'MBA'],
         ];
 
-        $countyData = null;
-
         foreach ($counties as $county) {
-            try {
-                $countyData = [
-                    'identifier' => generate_identifier(),
-                    'country_id' => $county['country_id'],
-                    'name' => $county['name'],
-                    'shortcode' => $county['shortCode'],
-                    'active' => $county['name'] == 'Africa',
-                    'added_by' => 1,
-                    'activated_by' => 1,
-                    'activated_at' => Carbon::now(),
-                    'updated_by' => 1,
-                ];
-                County::create($countyData);
-            } catch (\Throwable $error) {
-                Log::error(response()->json([
-                        'status' => "FAIL",
-                        'message' => 'Creating Continent - '.$county['name'].' failed at CountySeeder',
-                        'data' => $countyData,
-                        'error' => $error
-                    ])
-                );
-            }
+            County::create([
+                'identifier' => generate_identifier(),
+                'country_id' => $county['country_id'],
+                'name' => $county['name'],
+                'shortcode' => $county['shortcode'],
+                'active' => $county['name'] == 'Africa',
+                'added_by' => 1,
+                'activated_by' => 1,
+                'activated_at' => Carbon::now(),
+                'updated_by' => 1,
+            ]);
         }
     }
 }
